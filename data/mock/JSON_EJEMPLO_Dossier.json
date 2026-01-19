@@ -1,0 +1,565 @@
+﻿{
+    "id": 20240903,
+    "fecha_inicio": "2024-09-01",
+    "fecha_fin": "2024-09-07",
+    "chamber": null,
+    "total_items": 12,
+    "created_at": "2024-09-08T08:00:00",
+    "expires_at": null,
+    "data": {
+        "senado": {
+            "Comunicaciones": [
+                {
+                    "id": 5001,
+                    "gaceta_id": 100,
+                    "embedding": 0, 
+                    "chamber": "senado",
+                    "seccion_code": "413",
+                    "seccion_nombre": "Poder Ejecutivo Federal",
+                    "seccion_dossier": "Comunicaciones",
+                    "tipo_documento": "comunicacion",
+                    "titulo": "SECRETARÍA DE GOBERNACIÓN.- REMITE EL TERCER INFORME DE GOBIERNO DEL PRESIDENTE DE LA REPÚBLICA.",
+                    "promovente": "Poder Ejecutivo Federal",
+                    "partido": null,
+                    "comisiones": [],
+                    "source_url": "https://infosen.senado.gob.mx/sgsp/gaceta/66/1/2024-09-01-1/assets/documento/Informe_Gobierno_2024.pdf",
+                    "expediente_url": null,
+                    "expediente_id": null,
+                    "status": "embedded",
+                    "estatus_legislativo": "Recibido",
+                    "synopsis": "Entrega formal del informe anual sobre el estado que guarda la administración pública del país.",
+                    "resumen_generado": "La Secretaria de Gobernación entrega al Congreso General el Tercer Informe de Gobierno del Presidente de la República, cumpliendo con el mandato constitucional. Se detallan los avances en materia social, económica y de seguridad durante el último año de gestión.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "ENTREGA DEL TERCER INFORME DE GOBIERNO DEL PRESIDENTE DE LA REPÚBLICA",
+                            "tipo_documento": "comunicacion",
+                            "autor": "Lic. Andrés Manuel López Obrador",
+                            "partido": "Morena",
+                            "comisiones_responsables": [],
+                            "fecha_presentacion": "2024-09-01"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [],
+                            "sintesis": "Documento que contiene el estado general que guarda la administración pública federal.",
+                            "impacto_sectorial": [
+                                "Administración Pública",
+                                "Economía",
+                                "Seguridad"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Recibido",
+                            "turno": "Todas las Comisiones para análisis",
+                            "destino": "Glosa del Informe"
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-01T17:30:00"
+                }
+            ],
+            "Iniciativas": [
+                {
+                    "id": 5015,
+                    "gaceta_id": 102,
+                    "chamber": "senado",
+                    "seccion_code": "416",
+                    "seccion_nombre": "Iniciativas",
+                    "seccion_dossier": "Iniciativas",
+                    "tipo_documento": "iniciativa",
+                    "titulo": "INICIATIVA CON PROYECTO DE DECRETO POR EL QUE SE REFORMAN, ADICIONAN Y DEROGAN DIVERSAS DISPOSICIONES DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS, EN MATERIA DE REFORMA AL PODER JUDICIAL.",
+                    "promovente": "Ejecutivo Federal",
+                    "partido": "Morena",
+                    "comisiones": [
+                        "Comisión de Puntos Constitucionales",
+                        "Comisión de Estudios Legislativos"
+                    ],
+                    "source_url": "https://infosen.senado.gob.mx/sgsp/gaceta/66/1/2024-09-03-1/assets/documento/Reforma_Poder_Judicial.pdf",
+                    "expediente_url": "https://www.senado.gob.mx/66/gaceta_comision_permanente/documento/155123",
+                    "expediente_id": "LXVI/1PPO-15/3451",
+                    "status": "embedded",
+                    "estatus_legislativo": "Turnada a Comisiones",
+                    "synopsis": "Propuesta integral para la reestructuración del Poder Judicial, incluyendo la elección popular de ministros, magistrados y jueces.",
+                    "resumen_generado": "La iniciativa propone una reforma constitucional profunda al Poder Judicial de la Federación. Plantea la elección por voto popular de ministros de la SCJN, magistrados y jueces de distrito; la creación de un Tribunal de Disciplina Judicial sustituyendo al Consejo de la Judicatura; y medidas de austeridad republicana aplicables a los órganos judiciales.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "INICIATIVA DE REFORMA CONSTITUCIONAL AL PODER JUDICIAL",
+                            "tipo_documento": "iniciativa",
+                            "autor": "Presidente de la República",
+                            "partido": "Morena",
+                            "comisiones_responsables": [
+                                "Comisión de Puntos Constitucionales",
+                                "Comisión de Justicia"
+                            ],
+                            "fecha_presentacion": "2024-09-03"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [
+                                {
+                                    "ley": "Constitución Política de los Estados Unidos Mexicanos",
+                                    "articulos": [
+                                        "94",
+                                        "95",
+                                        "96",
+                                        "97",
+                                        "98",
+                                        "99",
+                                        "100"
+                                    ]
+                                }
+                            ],
+                            "sintesis": "Reforma para modificar el método de designación de juzgadores federales, establecer nuevos órganos de administración y vigilancia judicial.",
+                            "impacto_sectorial": [
+                                "Justicia",
+                                "Administración Pública",
+                                "Electoral"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Pendiente",
+                            "turno": "Comisiones Unidas de Puntos Constitucionales y de Estudios Legislativos",
+                            "destino": "Dictamen"
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-03T11:00:00"
+                }
+            ],
+            "Dictamenes": [
+                {
+                    "id": 5022,
+                    "gaceta_id": 102,
+                    "chamber": "senado",
+                    "seccion_code": "418",
+                    "seccion_nombre": "Dictámenes a Discusión y Votación",
+                    "seccion_dossier": "Dictamenes",
+                    "tipo_documento": "dictamen",
+                    "titulo": "DICTAMEN DE LA COMISIÓN DE GOBERNACIÓN, POR EL QUE SE RATIFICA EL NOMBRAMIENTO DEL C. ARTURO MEDINA PADILLA COMO PROCURADOR FISCAL DE LA FEDERACIÓN.",
+                    "promovente": "Comisión de Gobernación",
+                    "partido": null,
+                    "comisiones": [
+                        "Comisión de Gobernación"
+                    ],
+                    "source_url": "https://infosen.senado.gob.mx/sgsp/gaceta/66/1/2024-09-03-1/assets/documento/Dictamen_Ratificacion_PFF.pdf",
+                    "expediente_url": "https://www.senado.gob.mx/66/gaceta_comision_permanente/documento/155200",
+                    "expediente_id": "LXVI/DICT/005",
+                    "status": "embedded",
+                    "estatus_legislativo": "Aprobado",
+                    "synopsis": "Ratificación de funcionario de Hacienda.",
+                    "resumen_generado": "La Comisión de Gobernación presenta dictamen favorable para la ratificación del nombramiento realizado por el Ejecutivo Federal a favor de Arturo Medina Padilla como titular de la Procuraduría Fiscal de la Federación, tras verificar el cumplimiento de requisitos legales y perfil idóneo.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "DICTAMEN DE RATIFICACIÓN DEL PROCURADOR FISCAL DE LA FEDERACIÓN",
+                            "tipo_documento": "dictamen",
+                            "autor": null,
+                            "partido": null,
+                            "comisiones_responsables": [
+                                "Comisión de Gobernación"
+                            ],
+                            "fecha_presentacion": "2024-09-03"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [],
+                            "sintesis": "Aprobación del nombramiento de funcionario superior de Hacienda.",
+                            "impacto_sectorial": [
+                                "Hacienda",
+                                "Público"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Aprobado",
+                            "turno": "Pleno",
+                            "destino": "Toma de Protesta"
+                        },
+                        "votacion": {
+                            "hubo_votacion": true,
+                            "tipo_votacion": "general",
+                            "resultado": "aprobado",
+                            "votos_favor": 95,
+                            "votos_contra": 15,
+                            "abstenciones": 2,
+                            "quorum": 112,
+                            "destino": "Ejecutivo Federal",
+                            "detalle_votacion": "Aprobado por mayoría de 95 votos a favor",
+                            "fecha_votacion": "2024-09-03"
+                        }
+                    },
+                    "scraped_at": "2024-09-03T12:30:00"
+                }
+            ],
+            "Proposiciones": [],
+            "Acuerdos_Parlamentarios": [
+                {
+                    "id": 5030,
+                    "gaceta_id": 101,
+                    "chamber": "senado",
+                    "seccion_code": "411",
+                    "seccion_nombre": "Acuerdos de la Mesa Directiva",
+                    "seccion_dossier": "Acuerdos_Parlamentarios",
+                    "tipo_documento": "acuerdo",
+                    "titulo": "ACUERDO DE LA MESA DIRECTIVA PARA NORMAR LAS SESIONES SOLEMNES DURANTE EL PRIMER AÑO DE EJERCICIO DE LA LXVI LEGISLATURA.",
+                    "promovente": "Mesa Directiva",
+                    "partido": null,
+                    "comisiones": [],
+                    "source_url": "https://infosen.senado.gob.mx/sgsp/gaceta/66/1/2024-09-02-1/assets/documento/Acuerdo_Sesiones_Solemnes.pdf",
+                    "expediente_url": null,
+                    "expediente_id": null,
+                    "status": "embedded",
+                    "estatus_legislativo": "Aprobado",
+                    "synopsis": "Reglas para ceremonias y recepciones de jefes de estado.",
+                    "resumen_generado": "Acuerdo parlamentario que establece el protocolo, orden del día base y criterios de intervención para las sesiones solemnes que se celebren durante el presente año legislativo, incluyendo la recepción de dignatarios extranjeros.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "ACUERDO SOBRE PROTOCOLO DE SESIONES SOLEMNES",
+                            "tipo_documento": "acuerdo",
+                            "autor": "Mesa Directiva",
+                            "partido": null,
+                            "comisiones_responsables": [],
+                            "fecha_presentacion": "2024-09-02"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [],
+                            "sintesis": "Regulación protocolaria interna.",
+                            "impacto_sectorial": [
+                                "Legislativo",
+                                "Relaciones Exteriores"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Aprobado",
+                            "turno": null,
+                            "destino": "Publicación"
+                        },
+                        "votacion": {
+                            "hubo_votacion": true,
+                            "tipo_votacion": "economica",
+                            "resultado": "aprobado",
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": "Vigente",
+                            "detalle_votacion": "Aprobado en votación económica",
+                            "fecha_votacion": "2024-09-02"
+                        }
+                    },
+                    "scraped_at": "2024-09-02T10:00:00"
+                }
+            ],
+            "Minutas": [],
+            "Intervenciones_Verbales": [
+                {
+                    "id": 5900,
+                    "gaceta_id": 102,
+                    "chamber": "senado",
+                    "seccion_code": "intervenciones_verbales",
+                    "seccion_nombre": "Minuto a Minuto",
+                    "seccion_dossier": "Intervenciones_Verbales",
+                    "tipo_documento": "intervencion_verbal",
+                    "titulo": "POSICIONAMIENTO DEL SEN. RICARDO ANAYA CORTÉS SOBRE LA POLÍTICA ECONÓMICA.",
+                    "promovente": "Sen. Ricardo Anaya Cortés",
+                    "partido": "PAN",
+                    "comisiones": [],
+                    "source_url": "https://www.senado.gob.mx/66/minuto_minuto/detalle/5050",
+                    "expediente_url": null,
+                    "expediente_id": null,
+                    "status": "summarized",
+                    "estatus_legislativo": null,
+                    "synopsis": "Crítica a los resultados económicos post-pandemia.",
+                    "resumen_generado": "El Senador Ricardo Anaya hace uso de la tribuna para cuestionar las cifras de crecimiento económico presentadas en el Informe de Gobierno. Argumenta que la inflación ha superado las expectativas y afecta el poder adquisitivo.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "POSICIONAMIENTO SOBRE POLÍTICA ECONÓMICA",
+                            "tipo_documento": "intervencion_verbal",
+                            "autor": "Sen. Ricardo Anaya Cortés",
+                            "partido": "PAN",
+                            "comisiones_responsables": [],
+                            "fecha_presentacion": "2024-09-03"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [],
+                            "sintesis": "Debate económico y análisis del informe.",
+                            "impacto_sectorial": [
+                                "Economía"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": null,
+                            "turno": null,
+                            "destino": null
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-03T13:45:00"
+                }
+            ],
+            "Otros": []
+        },
+        "diputados": {
+            "Comunicaciones": [],
+            "Iniciativas": [
+                {
+                    "id": 6100,
+                    "gaceta_id": 801,
+                    "chamber": "diputados",
+                    "seccion_code": "Iniciativas",
+                    "seccion_nombre": "Iniciativas",
+                    "seccion_dossier": "Iniciativas",
+                    "tipo_documento": "iniciativa",
+                    "titulo": "INICIATIVA QUE REFORMA EL ARTÍCULO 4 DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS, EN MATERIA DE PENSIÓN UNIVERSAL PARA PERSONAS CON DISCAPACIDAD.",
+                    "promovente": "Dip. Ifigenia Martínez Hernández",
+                    "partido": "Morena",
+                    "comisiones": [
+                        "Comisión de Puntos Constitucionales"
+                    ],
+                    "source_url": "http://gaceta.diputados.gob.mx/Gaceta/66/2024/sep/20240903-I.html#Iniciativa1",
+                    "expediente_url": "http://sitl.diputados.gob.mx/LXVI_leg/iniciativas_por_fecha.php",
+                    "expediente_id": "LXVI-1-1234",
+                    "status": "embedded",
+                    "estatus_legislativo": "Turnada a Comisión",
+                    "synopsis": "Elevar a rango constitucional la universalidad de la pensión para personas con discapacidad.",
+                    "resumen_generado": "Propuesta para modificar el artículo 4 constitucional, garantizando que el Estado otorgue un apoyo económico a todas las personas con discapacidad permanente, priorizando a menores de dieciocho años, indígenas y afromexicanos.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "INICIATIVA DE PENSIÓN UNIVERSAL PARA PERSONAS CON DISCAPACIDAD",
+                            "tipo_documento": "iniciativa",
+                            "autor": "Dip. Ifigenia Martínez Hernández",
+                            "partido": "Morena",
+                            "comisiones_responsables": [
+                                "Comisión de Puntos Constitucionales"
+                            ],
+                            "fecha_presentacion": "2024-09-03"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [
+                                {
+                                    "ley": "Constitución Política de los Estados Unidos Mexicanos",
+                                    "articulos": [
+                                        "4"
+                                    ]
+                                }
+                            ],
+                            "sintesis": "Consolidación de derechos sociales en la Carta Magna.",
+                            "impacto_sectorial": [
+                                "Bienestar Social",
+                                "Salud",
+                                "Derechos Humanos"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Pendiente",
+                            "turno": "Comisión de Puntos Constitucionales",
+                            "destino": "Dictamen"
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-03T11:30:00"
+                }
+            ],
+            "Dictamenes": [],
+            "Proposiciones": [
+                {
+                    "id": 6205,
+                    "gaceta_id": 801,
+                    "chamber": "diputados",
+                    "seccion_code": "Proposiciones",
+                    "seccion_nombre": "Proposiciones con Punto de Acuerdo",
+                    "seccion_dossier": "Proposiciones",
+                    "tipo_documento": "proposicion",
+                    "titulo": "PROPOSICIÓN CON PUNTO DE ACUERDO POR EL QUE SE EXHORTA AL INE A GARANTIZAR LA SEGURIDAD EN LAS ELECCIONES EXTRAORDINARIAS DE CHIAPAS.",
+                    "promovente": "Dip. Rubén Moreira Valdez",
+                    "partido": "PRI",
+                    "comisiones": [
+                        "Comisión de Reforma Político-Electoral"
+                    ],
+                    "source_url": "http://gaceta.diputados.gob.mx/Gaceta/66/2024/sep/20240903-I.html#Proposicion5",
+                    "expediente_url": "http://sitl.diputados.gob.mx/LXVI_leg/proposiciones_por_fecha.php",
+                    "expediente_id": "6790",
+                    "status": "embedded",
+                    "estatus_legislativo": "Turnada a Comisión",
+                    "synopsis": "Exhorto para reforzar seguridad electoral.",
+                    "resumen_generado": "La proposición exhorta al Instituto Nacional Electoral y a la Secretaría de Seguridad y Protección Ciudadana a implementar operativos especiales que garanticen la integridad de funcionarios de casilla y votantes en los municipios con elecciones extraordinarias.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "PROPOSICIÓN SOBRE SEGURIDAD EN ELECCIONES EXTRAORDINARIAS",
+                            "tipo_documento": "proposicion",
+                            "autor": "Dip. Rubén Moreira Valdez",
+                            "partido": "PRI",
+                            "comisiones_responsables": [
+                                "Comisión de Reforma Político-Electoral",
+                                "Comisión de Seguridad Ciudadana"
+                            ],
+                            "fecha_presentacion": "2024-09-03"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [],
+                            "sintesis": "Llamado a garantizar paz en procesos electorales locales.",
+                            "impacto_sectorial": [
+                                "Seguridad",
+                                "Electoral"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Pendiente",
+                            "turno": "Comisiones Unidas",
+                            "destino": "Dictamen"
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-03T12:00:00"
+                }
+            ],
+            "Acuerdos_Parlamentarios": [],
+            "Minutas": [
+                {
+                    "id": 6300,
+                    "gaceta_id": 802,
+                    "chamber": "diputados",
+                    "seccion_code": "Minutas",
+                    "seccion_nombre": "Minutas",
+                    "seccion_dossier": "Minutas",
+                    "tipo_documento": "minuta",
+                    "titulo": "MINUTA CON PROYECTO DE DECRETO QUE EXPIDE LA LEY GENERAL DE PROTECCIÓN CIVIL Y GESTIÓN DEL RIESGO DE DESASTRES.",
+                    "promovente": "Cámara de Senadores",
+                    "partido": null,
+                    "comisiones": [
+                        "Comisión de Protección Civil"
+                    ],
+                    "source_url": "http://gaceta.diputados.gob.mx/Gaceta/66/2024/sep/20240905-I.html#Minuta1",
+                    "expediente_url": "http://sitl.diputados.gob.mx/LXVI_leg/minutas_por_fecha.php",
+                    "expediente_id": "LXVI/MIN/001",
+                    "status": "embedded",
+                    "estatus_legislativo": "Recibida",
+                    "synopsis": "Nueva ley marco para la gestión integral de riesgos.",
+                    "resumen_generado": "Minuta aprobada por el Senado que abroga la ley vigente y expide un nuevo ordenamiento para transitar de un enfoque reactivo a uno preventivo y de gestión integral de riesgos de desastres, alineado con marcos internacionales.",
+                    "metadata_json": {
+                        "encabezado": {
+                            "titulo": "MINUTA DE LEY GENERAL DE PROTECCIÓN CIVIL Y GESTIÓN DEL RIESGO",
+                            "tipo_documento": "minuta",
+                            "autor": "Cámara de Senadores",
+                            "partido": null,
+                            "comisiones_responsables": [
+                                "Comisión de Protección Civil",
+                                "Comisión de Presupuesto"
+                            ],
+                            "fecha_presentacion": "2024-09-05"
+                        },
+                        "contenido_legislativo": {
+                            "normas_afectadas": [
+                                {
+                                    "ley": "Ley General de Protección Civil (Vigente)",
+                                    "articulos": [
+                                        "Todos (Abrogación)"
+                                    ]
+                                }
+                            ],
+                            "sintesis": "Expedición de nueva ley para modernizar el sistema nacional de protección civil.",
+                            "impacto_sectorial": [
+                                "Seguridad",
+                                "Protección Civil",
+                                "Presupuesto"
+                            ]
+                        },
+                        "tramite": {
+                            "estatus": "Recibida",
+                            "turno": "Comisiones Unidas",
+                            "destino": "Dictamen"
+                        },
+                        "votacion": {
+                            "hubo_votacion": false,
+                            "tipo_votacion": null,
+                            "resultado": null,
+                            "votos_favor": null,
+                            "votos_contra": null,
+                            "abstenciones": null,
+                            "quorum": null,
+                            "destino": null,
+                            "detalle_votacion": null,
+                            "fecha_votacion": null
+                        }
+                    },
+                    "scraped_at": "2024-09-05T10:00:00"
+                }
+            ],
+            "Intervenciones_Verbales": [],
+            "Otros": [
+                {
+                    "id": 6999,
+                    "gaceta_id": 800,
+                    "chamber": "diputados",
+                    "seccion_code": "Efemerides",
+                    "seccion_nombre": "Efemérides",
+                    "seccion_dossier": "Otros",
+                    "tipo_documento": "otro",
+                    "titulo": "EFEMÉRIDE CON MOTIVO DEL INICIO DE LA GUERRA DE INDEPENDENCIA DE MÉXICO.",
+                    "promovente": "Mesa Directiva",
+                    "partido": null,
+                    "comisiones": [],
+                    "source_url": "http://gaceta.diputados.gob.mx/Gaceta/66/2024/sep/20240901-I.html#Efemeride1",
+                    "expediente_url": null,
+                    "expediente_id": null,
+                    "status": "scraped",
+                    "estatus_legislativo": null,
+                    "synopsis": "Conmemoración del 16 de septiembre.",
+                    "resumen_generado": null,
+                    "metadata_json": null,
+                    "scraped_at": "2024-09-01T11:00:00"
+                }
+            ]
+        }
+    }
+}
