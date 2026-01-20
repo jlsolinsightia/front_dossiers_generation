@@ -10,9 +10,13 @@ from src.services.dossier_mapper import normalize_for_ui_both_chambers
 from src.ui.views.parametros_view import ParametrosView
 from src.ui.views.resultados_view import ResultadosView
 
-# ✅ NUEVO: auth + login view
+#  auth + login view
 from src.services.auth_service import build_auth_service, AuthResult
 from src.ui.views.login_view import LoginView
+
+from src.services.clientes_repository import ClientesRepositoryFile
+from src.ui.views.clientes_view import ClientesView
+
 
 
 def run_app():
@@ -100,6 +104,21 @@ def run_app():
 
         tab_param = ttk.Frame(nb)
         tab_res = ttk.Frame(nb)
+
+        tab_clientes = ttk.Frame(nb)
+        nb.add(tab_clientes, text="Clientes")
+
+        clientes_repo = ClientesRepositoryFile(settings.CLIENTES_TEMAS_PATH)
+        try:
+            clientes = clientes_repo.load()
+        except Exception as ex:
+            clientes = []
+            print("No se pudieron cargar clientes:", ex)
+
+        clientes_view = ClientesView(tab_clientes, clientes=clientes)
+        clientes_view.pack(fill="both", expand=True, padx=10, pady=10)
+
+
 
         nb.add(tab_param, text="Parámetros")
         nb.add(tab_res, text="Resultados")

@@ -19,6 +19,19 @@ class ParametrosView(ttk.Frame):
 
         ttk.Label(self, text="Parámetros", style="Title.TLabel").pack(anchor="w", pady=(0, 10))
 
+        info = ttk.Label(
+            self,
+            text=(
+                "Selecciona un rango de fechas para consultar la información legislativa.\n"
+                "Se incluirán todos los registros cuya fecha se encuentre dentro del "
+                "intervalo seleccionado."
+            ),
+            wraplength=900,
+            justify="left",
+            style="Info.TLabel"
+        )
+        info.pack(fill="x", padx=10, pady=(0, 15))
+
         form = ttk.Frame(self)
         form.pack(anchor="w")
 

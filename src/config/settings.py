@@ -13,6 +13,9 @@ class Settings:
     USERS_PATH: Path = Path("data/mock/users.json")
     AUTH_SALT: str = "insightia_salt_v1"
 
+    CLIENTES_TEMAS_PATH: Path = Path("data\mock\clientes_temas.json")
+
+
     # Fuente de datos: "file" o "api"
     DATA_SOURCE: str = "file"
 

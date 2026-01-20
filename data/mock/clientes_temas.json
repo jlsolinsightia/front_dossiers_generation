@@ -1,0 +1,36 @@
+{
+  "clientes": [
+    {
+      "nombre": "Comex",
+      "temas_interes": [
+        "Reforma fiscal",
+        "Iniciativas de salud",
+        "Normatividad ambiental"
+      ]
+    },
+    {
+      "nombre": "Mercado Libre",
+      "temas_interes": [
+        "Comercio electrónico",
+        "Protección al consumidor",
+        "Impuestos digitales"
+      ]
+    },
+    {
+      "nombre": "Aeroméxico",
+      "temas_interes": [
+        "Aeronáutica civil",
+        "Turismo",
+        "Infraestructura aeroportuaria"
+      ]
+    },
+    {
+      "nombre": "Abbott",
+      "temas_interes": [
+        "Cofepris",
+        "Salud pública",
+        "Compras gubernamentales"
+      ]
+    }
+  ]
+}
