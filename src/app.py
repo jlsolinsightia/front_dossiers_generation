@@ -126,11 +126,12 @@ def run_app():
         resultados_view = ResultadosView(tab_res, template_path=str(settings.TEMPLATE_DOCX_PATH))
         resultados_view.pack(fill="both", expand=True, padx=10, pady=10)
 
-        def on_review(date_from: str, date_to: str):
+
+        def on_review(cliente: str, date_from: str, date_to: str):
             resultados_view.set_status("Cargando dossier...")
 
             def work():
-                q = DossierQuery(cliente="N/A", camara="ALL", desde=date_from, hasta=date_to)
+                q = DossierQuery(cliente=cliente, camara="ALL", desde=date_from, hasta=date_to)
                 payload = repo.get_dossier(q)
 
                 # Debug opcional

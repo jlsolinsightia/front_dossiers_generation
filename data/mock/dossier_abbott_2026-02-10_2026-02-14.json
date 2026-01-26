@@ -1,0 +1,108 @@
+{
+  "id": 2026021401,
+  "cliente": "Abbott",
+  "fecha_inicio": "2026-02-10",
+  "fecha_fin": "2026-02-14",
+  "chamber": null,
+  "total_items": 7,
+  "created_at": "2026-02-15T08:00:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [
+        {
+          "id": 8101,
+          "gaceta_id": 1501,
+          "chamber": "senado",
+          "seccion_dossier": "Comunicaciones",
+          "tipo_documento": "comunicacion",
+          "titulo": "SECRETARÍA DE SALUD.- REMITE INFORME SOBRE ABASTO DE INSUMOS PARA LA SALUD.",
+          "promovente": "Secretaría de Salud",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/senado/comunicacion_abasto_salud.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Recibido",
+          "synopsis": "Informe administrativo sobre abasto.",
+          "resumen_generado": "Se remite un informe general sobre acciones de abasto y suministro de insumos para la salud.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-11" } },
+          "scraped_at": "2026-02-11T10:30:00"
+        }
+      ],
+      "Dictamenes": [
+        {
+          "id": 8120,
+          "gaceta_id": 1502,
+          "chamber": "senado",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN SOBRE ACTUALIZACIÓN DE DISPOSICIONES EN MATERIA DE VIGILANCIA SANITARIA.",
+          "promovente": "Comisiones Unidas",
+          "partido": null,
+          "comisiones": ["Salud"],
+          "source_url": "https://example.com/senado/dictamen_vigilancia_sanitaria.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Ajustes a disposiciones de vigilancia sanitaria.",
+          "resumen_generado": "Se dictaminan modificaciones orientadas a mejorar procesos de vigilancia sanitaria y coordinación institucional.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-13" } },
+          "scraped_at": "2026-02-13T14:10:00"
+        }
+      ],
+      "Iniciativas": [
+        {
+          "id": 8135,
+          "gaceta_id": 1503,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA PARA FORTALECER LA TRAZABILIDAD DE MEDICAMENTOS E INSUMOS.",
+          "promovente": "Sen. X",
+          "partido": null,
+          "comisiones": ["Salud"],
+          "source_url": "https://example.com/senado/iniciativa_trazabilidad.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Trazabilidad y control de cadena de suministro.",
+          "resumen_generado": "Se propone integrar mecanismos de trazabilidad para mejorar el control en la cadena de suministro de medicamentos.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-12" } },
+          "scraped_at": "2026-02-12T12:05:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 8301,
+          "gaceta_id": 2501,
+          "chamber": "diputados",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "EXHORTO PARA REFORZAR SUPERVISIÓN DE INSUMOS MÉDICOS Y DISPOSITIVOS.",
+          "promovente": "Dip. Y",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/exhorto_insumos_dispositivos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Medidas de supervisión y control.",
+          "resumen_generado": "Se solicita fortalecer la supervisión de insumos médicos y dispositivos mediante coordinación y verificaciones.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-14" } },
+          "scraped_at": "2026-02-14T09:30:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

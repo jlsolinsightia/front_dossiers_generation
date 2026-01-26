@@ -1,0 +1,89 @@
+{
+  "id": 2026010501,
+  "cliente": "Abbott",
+  "fecha_inicio": "2026-01-01",
+  "fecha_fin": "2026-01-05",
+  "chamber": null,
+  "total_items": 6,
+  "created_at": "2026-01-06T08:00:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [
+        {
+          "id": 8001,
+          "gaceta_id": 1100,
+          "chamber": "senado",
+          "seccion_dossier": "Comunicaciones",
+          "tipo_documento": "comunicacion",
+          "titulo": "COFEPRIS.- COMUNICA LINEAMIENTOS ACTUALIZADOS PARA TRÁMITES SANITARIOS.",
+          "promovente": "COFEPRIS",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/senado/comunicacion_cofepris.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Recibido",
+          "synopsis": "Actualización administrativa vinculada a regulación sanitaria.",
+          "resumen_generado": "Se informa sobre la actualización de lineamientos para la recepción y atención de trámites sanitarios.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-02" } },
+          "scraped_at": "2026-01-02T10:00:00"
+        }
+      ],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 8015,
+          "gaceta_id": 1102,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA EN MATERIA DE ABASTO Y COMPRAS PÚBLICAS DE MEDICAMENTOS.",
+          "promovente": "Grupo Parlamentario",
+          "partido": null,
+          "comisiones": ["Salud"],
+          "source_url": "https://example.com/senado/iniciativa_medicamentos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Ajustes al marco de compras públicas relacionadas con insumos para la salud.",
+          "resumen_generado": "Propone modificaciones para fortalecer mecanismos de compra, control de calidad y transparencia en medicamentos e insumos.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-04" } },
+          "scraped_at": "2026-01-04T12:00:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 8205,
+          "gaceta_id": 2101,
+          "chamber": "diputados",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "EXHORTO PARA FORTALECER LA SUPERVISIÓN DE INSUMOS MÉDICOS EN FRONTERAS.",
+          "promovente": "Dip. X",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/proposicion_insumos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Medidas de control y verificación.",
+          "resumen_generado": "Se solicita reforzar controles para verificación y trazabilidad de insumos médicos importados.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-03" } },
+          "scraped_at": "2026-01-03T11:00:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

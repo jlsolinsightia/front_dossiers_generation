@@ -1,0 +1,70 @@
+{
+  "id": 2026030704,
+  "cliente": "Mercado Libre",
+  "fecha_inicio": "2026-03-03",
+  "fecha_fin": "2026-03-07",
+  "chamber": null,
+  "total_items": 7,
+  "created_at": "2026-03-08T08:30:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 6301,
+          "gaceta_id": 2201,
+          "chamber": "senado",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "PUNTO DE ACUERDO PARA REFORZAR MECANISMOS DE DENUNCIA DE FRAUDES EN PLATAFORMAS DIGITALES.",
+          "promovente": "Sen. J",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/senado/punto_acuerdo_denuncia_fraudes.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Denuncias y coordinación.",
+          "resumen_generado": "Exhorto para fortalecer canales de denuncia y coordinación para combatir fraudes en plataformas.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-05" } },
+          "scraped_at": "2026-03-05T09:50:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 6401,
+          "gaceta_id": 3201,
+          "chamber": "diputados",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA SOBRE IDENTIDAD DIGITAL Y VERIFICACIÓN DE CUENTAS EN SERVICIOS EN LÍNEA.",
+          "promovente": "Dip. K",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/diputados/iniciativa_identidad_digital.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Identidad digital.",
+          "resumen_generado": "Propone mecanismos de identidad digital y verificación para reducir suplantación y riesgos en línea.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-03" } },
+          "scraped_at": "2026-03-03T16:10:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

@@ -4,6 +4,7 @@ from datetime import datetime
 
 from src.ui.components.datepicker import DatePicker
 
+
 def _validate_date(s: str) -> bool:
     try:
         datetime.strptime(s, "%Y-%m-%d")
@@ -35,15 +36,36 @@ class ParametrosView(ttk.Frame):
         form = ttk.Frame(self)
         form.pack(anchor="w")
 
-        ttk.Label(form, text="Desde").grid(row=0, column=0, sticky="w", padx=(0, 10), pady=6)
+        # =========================
+        # ✅ Cliente (nuevo)
+        # =========================
+        self.clientes = ["Abbott", "Aeroméxico", "Comex", "Mercado Libre"]
+        self.cliente_var = tk.StringVar(value=self.clientes[0])
+
+        ttk.Label(form, text="Cliente").grid(row=0, column=0, sticky="w", padx=(0, 10), pady=6)
+        self.cmb_cliente = ttk.Combobox(
+            form,
+            textvariable=self.cliente_var,
+            values=self.clientes,
+            state="readonly",
+            width=28
+            # ✅ sin style="White.TCombobox"
+        )
+
+        self.cmb_cliente.grid(row=0, column=1, sticky="w", pady=6)
+
+        # =========================
+        # Fechas
+        # =========================
+        ttk.Label(form, text="Desde").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=6)
         self.date_from_var = tk.StringVar(value="")
         self.dp_from = DatePicker(form, textvariable=self.date_from_var, width=28)
-        self.dp_from.grid(row=0, column=1, sticky="w", pady=6)
+        self.dp_from.grid(row=1, column=1, sticky="w", pady=6)
 
-        ttk.Label(form, text="Hasta").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=6)
+        ttk.Label(form, text="Hasta").grid(row=2, column=0, sticky="w", padx=(0, 10), pady=6)
         self.date_to_var = tk.StringVar(value="")
         self.dp_to = DatePicker(form, textvariable=self.date_to_var, width=28)
-        self.dp_to.grid(row=1, column=1, sticky="w", pady=6)
+        self.dp_to.grid(row=2, column=1, sticky="w", pady=6)
 
         actions = ttk.Frame(self)
         actions.pack(anchor="w", pady=(10, 0))
@@ -58,8 +80,13 @@ class ParametrosView(ttk.Frame):
         self.hint.pack(anchor="w", pady=(10, 0))
 
     def _review(self):
+        cliente = (self.cliente_var.get() or "").strip()
         date_from = self.dp_from.get()
         date_to = self.dp_to.get()
+
+        if not cliente:
+            messagebox.showwarning("Falta cliente", "Selecciona un cliente.")
+            return
 
         if not date_from or not date_to:
             messagebox.showwarning("Faltan fechas", "Selecciona fecha 'Desde' y 'Hasta'.")
@@ -69,5 +96,5 @@ class ParametrosView(ttk.Frame):
             messagebox.showerror("Formato inválido", "Las fechas deben tener formato YYYY-MM-DD.")
             return
 
-        # callback
-        self.on_review(date_from, date_to)
+        # ✅ callback ahora manda (cliente, desde, hasta)
+        self.on_review(cliente, date_from, date_to)

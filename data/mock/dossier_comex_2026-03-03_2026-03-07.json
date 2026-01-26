@@ -1,0 +1,70 @@
+{
+  "id": 2026030703,
+  "cliente": "Comex",
+  "fecha_inicio": "2026-03-03",
+  "fecha_fin": "2026-03-07",
+  "chamber": null,
+  "total_items": 6,
+  "created_at": "2026-03-08T08:20:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 7310,
+          "gaceta_id": 2101,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA PARA FORTALECER CERTIFICACIÓN DE PRODUCTOS QUÍMICOS DE USO INDUSTRIAL.",
+          "promovente": "Sen. I",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/senado/iniciativa_certificacion_quimicos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Certificación y trazabilidad.",
+          "resumen_generado": "Busca fortalecer mecanismos de certificación y trazabilidad en productos químicos de uso industrial.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-04" } },
+          "scraped_at": "2026-03-04T13:10:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 7402,
+          "gaceta_id": 3101,
+          "chamber": "diputados",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN SOBRE INCENTIVOS A PROCESOS SUSTENTABLES EN INDUSTRIA DE RECUBRIMIENTOS.",
+          "promovente": "Comisión",
+          "partido": null,
+          "comisiones": ["Medio Ambiente"],
+          "source_url": "https://example.com/diputados/dictamen_recubrimientos_sustentables.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Incentivos sustentables.",
+          "resumen_generado": "Incluye medidas para incentivar procesos sustentables y reducción de emisiones en recubrimientos.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-06" } },
+          "scraped_at": "2026-03-06T11:45:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

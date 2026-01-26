@@ -1,0 +1,70 @@
+{
+  "id": 2026010502,
+  "cliente": "Aeroméxico",
+  "fecha_inicio": "2026-01-01",
+  "fecha_fin": "2026-01-05",
+  "chamber": null,
+  "total_items": 5,
+  "created_at": "2026-01-06T08:10:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 9002,
+          "gaceta_id": 1201,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA PARA FORTALECER LA SEGURIDAD OPERACIONAL EN AEROPUERTOS.",
+          "promovente": "Sen. Y",
+          "partido": null,
+          "comisiones": ["Comunicaciones y Transportes"],
+          "source_url": "https://example.com/senado/iniciativa_aeropuertos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Medidas de seguridad y supervisión aeroportuaria.",
+          "resumen_generado": "Busca robustecer la supervisión de protocolos y seguridad operacional en terminales aéreas.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-02" } },
+          "scraped_at": "2026-01-02T13:00:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 9101,
+          "gaceta_id": 2200,
+          "chamber": "diputados",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN RELATIVO A INFRAESTRUCTURA Y SERVICIOS EN AEROPUERTOS REGIONALES.",
+          "promovente": "Comisión",
+          "partido": null,
+          "comisiones": ["Infraestructura"],
+          "source_url": "https://example.com/diputados/dictamen_aeropuertos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Mejoras operativas y de servicio.",
+          "resumen_generado": "Incluye acciones de modernización y mejora del servicio en aeropuertos regionales.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-04" } },
+          "scraped_at": "2026-01-04T10:20:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

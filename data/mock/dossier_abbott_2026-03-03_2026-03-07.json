@@ -1,0 +1,89 @@
+{
+  "id": 2026030701,
+  "cliente": "Abbott",
+  "fecha_inicio": "2026-03-03",
+  "fecha_fin": "2026-03-07",
+  "chamber": null,
+  "total_items": 7,
+  "created_at": "2026-03-08T08:00:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [
+        {
+          "id": 8401,
+          "gaceta_id": 1901,
+          "chamber": "senado",
+          "seccion_dossier": "Comunicaciones",
+          "tipo_documento": "comunicacion",
+          "titulo": "COFEPRIS.- REMITE CRITERIOS PARA EVALUACIÓN DE DISPOSITIVOS MÉDICOS.",
+          "promovente": "COFEPRIS",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/senado/comunicacion_dispositivos_medicos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Recibido",
+          "synopsis": "Criterios para evaluación técnica.",
+          "resumen_generado": "Se comunican criterios de evaluación para dispositivos médicos con fines de mejora en verificación y control.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-03" } },
+          "scraped_at": "2026-03-03T10:15:00"
+        }
+      ],
+      "Dictamenes": [],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 8410,
+          "gaceta_id": 1902,
+          "chamber": "senado",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "PUNTO DE ACUERDO PARA REFORZAR TRANSPARENCIA EN COMPRAS PÚBLICAS DE INSUMOS PARA LA SALUD.",
+          "promovente": "Sen. G",
+          "partido": null,
+          "comisiones": ["Salud"],
+          "source_url": "https://example.com/senado/punto_acuerdo_compras_salud.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Transparencia y seguimiento.",
+          "resumen_generado": "Exhorto para fortalecer mecanismos de transparencia y seguimiento en compras públicas de insumos para la salud.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-06" } },
+          "scraped_at": "2026-03-06T12:00:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 8502,
+          "gaceta_id": 2901,
+          "chamber": "diputados",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN SOBRE COORDINACIÓN INTERINSTITUCIONAL PARA VIGILANCIA SANITARIA.",
+          "promovente": "Comisión",
+          "partido": null,
+          "comisiones": ["Salud"],
+          "source_url": "https://example.com/diputados/dictamen_vigilancia_sanitaria.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Coordinación y vigilancia.",
+          "resumen_generado": "Incluye medidas para mejorar coordinación y capacidad operativa en vigilancia sanitaria.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-07" } },
+          "scraped_at": "2026-03-07T09:10:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

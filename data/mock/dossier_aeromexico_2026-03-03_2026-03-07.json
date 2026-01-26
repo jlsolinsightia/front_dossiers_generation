@@ -1,0 +1,89 @@
+{
+  "id": 2026030702,
+  "cliente": "Aeroméxico",
+  "fecha_inicio": "2026-03-03",
+  "fecha_fin": "2026-03-07",
+  "chamber": null,
+  "total_items": 6,
+  "created_at": "2026-03-08T08:10:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 9301,
+          "gaceta_id": 2001,
+          "chamber": "senado",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN PARA FORTALECER MECANISMOS DE ATENCIÓN EN CONTINGENCIAS AÉREAS.",
+          "promovente": "Comisiones Unidas",
+          "partido": null,
+          "comisiones": ["Comunicaciones y Transportes"],
+          "source_url": "https://example.com/senado/dictamen_contingencias_aereas.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Atención a contingencias.",
+          "resumen_generado": "Propone medidas de coordinación y atención a usuarios ante contingencias y cancelaciones en el transporte aéreo.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-05" } },
+          "scraped_at": "2026-03-05T14:45:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [
+        {
+          "id": 9401,
+          "gaceta_id": 3001,
+          "chamber": "diputados",
+          "seccion_dossier": "Comunicaciones",
+          "tipo_documento": "comunicacion",
+          "titulo": "AERONÁUTICA CIVIL.- REMITE INFORME SOBRE OPERACIÓN Y DEMORAS EN AEROPUERTOS.",
+          "promovente": "Autoridad Aeronáutica",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/comunicacion_demoras_aeropuertos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Recibido",
+          "synopsis": "Informe operativo.",
+          "resumen_generado": "Se remite informe de operación, demoras y acciones de mitigación en terminales aéreas.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-03" } },
+          "scraped_at": "2026-03-03T10:30:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 9412,
+          "gaceta_id": 3002,
+          "chamber": "diputados",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "EXHORTO PARA MEJORAR INFORMACIÓN A PASAJEROS ANTE RETRASOS Y CANCELACIONES.",
+          "promovente": "Dip. H",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/exhorto_info_pasajeros.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Mejoras en comunicación.",
+          "resumen_generado": "Se exhorta a mejorar información y atención a pasajeros ante retrasos y cancelaciones.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-03-07" } },
+          "scraped_at": "2026-03-07T09:40:00"
+        }
+      ],
+      "Dictamenes": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

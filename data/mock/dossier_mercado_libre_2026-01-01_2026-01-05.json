@@ -1,0 +1,70 @@
+{
+  "id": 2026010504,
+  "cliente": "Mercado Libre",
+  "fecha_inicio": "2026-01-01",
+  "fecha_fin": "2026-01-05",
+  "chamber": null,
+  "total_items": 6,
+  "created_at": "2026-01-06T08:30:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 6002,
+          "gaceta_id": 1401,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA EN MATERIA DE COMERCIO ELECTRÓNICO Y PROTECCIÓN AL CONSUMIDOR.",
+          "promovente": "Sen. B",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/senado/iniciativa_ecommerce.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Actualización de obligaciones en plataformas.",
+          "resumen_generado": "Propone reglas para transparencia de vendedores, devoluciones y protección de datos en plataformas.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-02" } },
+          "scraped_at": "2026-01-02T15:00:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 6201,
+          "gaceta_id": 2401,
+          "chamber": "diputados",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "EXHORTO PARA REFORZAR MEDIDAS CONTRA FRAUDES EN VENTAS EN LÍNEA.",
+          "promovente": "Dip. C",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/proposicion_fraudes.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Acciones preventivas y coordinación.",
+          "resumen_generado": "Se solicita coordinación interinstitucional y mejores prácticas contra fraudes en e-commerce.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-01-04" } },
+          "scraped_at": "2026-01-04T09:00:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

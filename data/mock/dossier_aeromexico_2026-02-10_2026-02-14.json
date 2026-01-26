@@ -1,0 +1,108 @@
+{
+  "id": 2026021402,
+  "cliente": "Aeroméxico",
+  "fecha_inicio": "2026-02-10",
+  "fecha_fin": "2026-02-14",
+  "chamber": null,
+  "total_items": 6,
+  "created_at": "2026-02-15T08:10:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [
+        {
+          "id": 9105,
+          "gaceta_id": 1601,
+          "chamber": "senado",
+          "seccion_dossier": "Comunicaciones",
+          "tipo_documento": "comunicacion",
+          "titulo": "SCT.- COMUNICA LINEAMIENTOS DE OPERACIÓN EN TERMINALES AÉREAS.",
+          "promovente": "Autoridad de Transporte",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/senado/comunicacion_terminales.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Recibido",
+          "synopsis": "Lineamientos operativos para terminales.",
+          "resumen_generado": "Se informan ajustes a lineamientos de operación y coordinación en terminales aéreas.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-10" } },
+          "scraped_at": "2026-02-10T10:05:00"
+        }
+      ],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 9112,
+          "gaceta_id": 1602,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA PARA MEJORAR LA ATENCIÓN A USUARIOS EN TRANSPORTE AÉREO.",
+          "promovente": "Sen. A",
+          "partido": null,
+          "comisiones": ["Comunicaciones y Transportes"],
+          "source_url": "https://example.com/senado/iniciativa_derechos_pasajeros.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Derechos de pasajeros y atención.",
+          "resumen_generado": "Propone actualizar disposiciones sobre atención a usuarios, retrasos y mecanismos de información.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-12" } },
+          "scraped_at": "2026-02-12T13:40:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 9201,
+          "gaceta_id": 2601,
+          "chamber": "diputados",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN PARA FORTALECER PROTOCOLOS DE SEGURIDAD OPERACIONAL EN AEROPUERTOS.",
+          "promovente": "Comisión",
+          "partido": null,
+          "comisiones": ["Infraestructura"],
+          "source_url": "https://example.com/diputados/dictamen_seguridad_operacional.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Protocolos y supervisión.",
+          "resumen_generado": "Incluye medidas para reforzar supervisión y cumplimiento de protocolos de seguridad operacional.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-13" } },
+          "scraped_at": "2026-02-13T11:20:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [
+        {
+          "id": 9210,
+          "gaceta_id": 2602,
+          "chamber": "diputados",
+          "seccion_dossier": "Acuerdos_Parlamentarios",
+          "tipo_documento": "acuerdo",
+          "titulo": "ACUERDO PARA SOLICITAR INFORME SOBRE CAPACIDAD OPERATIVA EN AEROPUERTOS REGIONALES.",
+          "promovente": "Mesa Directiva",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/acuerdo_informe_aeropuertos.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Solicitud de información.",
+          "resumen_generado": "Se solicita informe sobre capacidad operativa, servicio y conectividad en aeropuertos regionales.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-14" } },
+          "scraped_at": "2026-02-14T09:15:00"
+        }
+      ],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}

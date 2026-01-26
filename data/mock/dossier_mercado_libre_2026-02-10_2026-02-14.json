@@ -1,0 +1,89 @@
+{
+  "id": 2026021404,
+  "cliente": "Mercado Libre",
+  "fecha_inicio": "2026-02-10",
+  "fecha_fin": "2026-02-14",
+  "chamber": null,
+  "total_items": 7,
+  "created_at": "2026-02-15T08:30:00",
+  "expires_at": null,
+  "data": {
+    "senado": {
+      "Comunicaciones": [],
+      "Dictamenes": [],
+      "Iniciativas": [
+        {
+          "id": 6102,
+          "gaceta_id": 1801,
+          "chamber": "senado",
+          "seccion_dossier": "Iniciativas",
+          "tipo_documento": "iniciativa",
+          "titulo": "INICIATIVA PARA FORTALECER MECANISMOS DE IDENTIFICACIÓN DE VENDEDORES EN PLATAFORMAS.",
+          "promovente": "Sen. E",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/senado/iniciativa_identificacion_vendedores.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisiones",
+          "synopsis": "Transparencia en plataformas.",
+          "resumen_generado": "Plantea obligaciones de identificación y trazabilidad de vendedores para mejorar la protección al consumidor.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-10" } },
+          "scraped_at": "2026-02-10T17:10:00"
+        }
+      ],
+      "Proposiciones": [],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    },
+    "diputados": {
+      "Comunicaciones": [],
+      "Dictamenes": [
+        {
+          "id": 6205,
+          "gaceta_id": 2801,
+          "chamber": "diputados",
+          "seccion_dossier": "Dictamenes",
+          "tipo_documento": "dictamen",
+          "titulo": "DICTAMEN SOBRE MEDIDAS CONTRA FRAUDE Y SUPLANTACIÓN EN COMERCIO ELECTRÓNICO.",
+          "promovente": "Comisión",
+          "partido": null,
+          "comisiones": ["Economía"],
+          "source_url": "https://example.com/diputados/dictamen_fraude_ecommerce.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Aprobado",
+          "synopsis": "Medidas anti-fraude.",
+          "resumen_generado": "Incluye recomendaciones para prevención de fraude, verificación de identidad y coordinación interinstitucional.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-12" } },
+          "scraped_at": "2026-02-12T11:00:00"
+        }
+      ],
+      "Iniciativas": [],
+      "Proposiciones": [
+        {
+          "id": 6210,
+          "gaceta_id": 2802,
+          "chamber": "diputados",
+          "seccion_dossier": "Proposiciones",
+          "tipo_documento": "proposicion",
+          "titulo": "EXHORTO PARA CAMPAÑAS DE EDUCACIÓN DIGITAL Y PREVENCIÓN DE FRAUDES EN LÍNEA.",
+          "promovente": "Dip. F",
+          "partido": null,
+          "comisiones": [],
+          "source_url": "https://example.com/diputados/exhorto_educacion_digital.pdf",
+          "status": "embedded",
+          "estatus_legislativo": "Turnada a Comisión",
+          "synopsis": "Educación digital.",
+          "resumen_generado": "Solicita campañas de educación digital para prevenir fraudes y fortalecer capacidades de denuncia.",
+          "metadata_json": { "encabezado": { "fecha_presentacion": "2026-02-14" } },
+          "scraped_at": "2026-02-14T09:40:00"
+        }
+      ],
+      "Acuerdos_Parlamentarios": [],
+      "Minutas": [],
+      "Intervenciones_Verbales": [],
+      "Otros": []
+    }
+  }
+}
