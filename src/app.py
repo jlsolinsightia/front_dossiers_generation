@@ -10,13 +10,12 @@ from src.services.dossier_mapper import normalize_for_ui_both_chambers
 from src.ui.views.parametros_view import ParametrosView
 from src.ui.views.resultados_view import ResultadosView
 
-#  auth + login view
+# auth + login view
 from src.services.auth_service import build_auth_service, AuthResult
 from src.ui.views.login_view import LoginView
 
 from src.services.clientes_repository import ClientesRepositoryFile
 from src.ui.views.clientes_view import ClientesView
-
 
 
 def run_app():
@@ -44,14 +43,53 @@ def run_app():
     session_user: str | None = None
     session_role: str | None = None
 
+    # Cache de clientes (para combo en Parámetros)
+    clientes_combo: list[str] = []
+
     def clear_container_frame(frame: ttk.Frame | None):
         if frame is not None:
             frame.destroy()
 
+    def load_clientes_for_ui() -> tuple[list[dict], list[str]]:
+        """
+        Devuelve:
+          - clientes: estructura completa (para ClientesView)
+          - clientes_names: lista de nombres para combobox
+        """
+        repo_clientes = ClientesRepositoryFile(settings.CLIENTES_TEMAS_PATH)
+        try:
+            clientes = repo_clientes.load() or []
+        except Exception as ex:
+            print("No se pudieron cargar clientes:", ex)
+            clientes = []
+
+        # Intenta extraer nombres de manera flexible
+        nombres: list[str] = []
+        for c in clientes:
+            if isinstance(c, dict):
+                name = (c.get("cliente") or c.get("nombre") or c.get("name") or "").strip()
+                if name:
+                    nombres.append(name)
+            elif isinstance(c, str):
+                nombres.append(c)
+
+        # fallback por si viene vacío
+        if not nombres:
+            nombres = ["Abbott", "Aeroméxico", "Comex", "Mercado Libre"]
+
+        # quitar duplicados preservando orden
+        seen = set()
+        uniq = []
+        for n in nombres:
+            if n not in seen:
+                uniq.append(n)
+                seen.add(n)
+
+        return clientes, uniq
+
     def show_login():
         nonlocal login_view, main_frame, session_user, session_role
 
-        # destruir main si existe
         clear_container_frame(main_frame)
         main_frame = None
 
@@ -81,7 +119,7 @@ def run_app():
         show_login()
 
     def show_main():
-        nonlocal main_frame, session_user, session_role
+        nonlocal main_frame, session_user, session_role, clientes_combo
 
         main_frame = ttk.Frame(container)
         main_frame.pack(fill="both", expand=True)
@@ -98,35 +136,30 @@ def run_app():
 
         ttk.Button(header, text="Cerrar sesión", command=logout).pack(side="right")
 
-        # Notebook principal (igual que tu código)
+        # Cargar clientes para tabs + combobox
+        clientes_data, clientes_combo = load_clientes_for_ui()
+
+        # Notebook principal
         nb = ttk.Notebook(main_frame)
         nb.pack(fill="both", expand=True, padx=10, pady=10)
 
+        tab_clientes = ttk.Frame(nb)
         tab_param = ttk.Frame(nb)
         tab_res = ttk.Frame(nb)
 
-        tab_clientes = ttk.Frame(nb)
         nb.add(tab_clientes, text="Clientes")
-
-        clientes_repo = ClientesRepositoryFile(settings.CLIENTES_TEMAS_PATH)
-        try:
-            clientes = clientes_repo.load()
-        except Exception as ex:
-            clientes = []
-            print("No se pudieron cargar clientes:", ex)
-
-        clientes_view = ClientesView(tab_clientes, clientes=clientes)
-        clientes_view.pack(fill="both", expand=True, padx=10, pady=10)
-
-
-
         nb.add(tab_param, text="Parámetros")
         nb.add(tab_res, text="Resultados")
 
+        # --- Clientes tab
+        clientes_view = ClientesView(tab_clientes, clientes=clientes_data)
+        clientes_view.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # --- Resultados tab
         resultados_view = ResultadosView(tab_res, template_path=str(settings.TEMPLATE_DOCX_PATH))
         resultados_view.pack(fill="both", expand=True, padx=10, pady=10)
 
-
+        # --- Callback de revisión
         def on_review(cliente: str, date_from: str, date_to: str):
             resultados_view.set_status("Cargando dossier...")
 
@@ -149,6 +182,8 @@ def run_app():
                 return vm
 
             def ok(vm):
+                # ✅ importante para el token {{CLIENTE}}
+                resultados_view.set_cliente(cliente)
                 resultados_view.render(vm, date_from=date_from, date_to=date_to)
                 nb.select(tab_res)
 
@@ -167,7 +202,8 @@ def run_app():
 
             threading.Thread(target=runner, daemon=True).start()
 
-        parametros_view = ParametrosView(tab_param, on_review=on_review)
+        # --- Parámetros tab (pasamos lista de clientes al combo)
+        parametros_view = ParametrosView(tab_param, on_review=on_review, clientes=clientes_combo)
         parametros_view.pack(fill="both", expand=True, padx=10, pady=10)
 
     # Arranca en login

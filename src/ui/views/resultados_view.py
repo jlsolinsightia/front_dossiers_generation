@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 from tkinter import filedialog, messagebox
-import os
 
 from src.services.dossier_exporter_word_template import export_selected_to_template
 from src.domain.models import UiItem, DossierViewModel
@@ -24,10 +23,13 @@ PREFERRED_SECTIONS = [
 class ResultadosView(ttk.Frame):
     def __init__(self, parent, template_path: str):
         self.template_path = template_path
+        self._cliente: str | None = None
+
         self._date_from = ""
         self._date_to = ""
-        self._selected: set[str] = set()   # keys únicos de items seleccionados
-        self._item_index: dict[str, UiItem] = {}  # key -> UiItem (para export y detalle)
+        self._selected: set[str] = set()           # keys únicos de items seleccionados
+        self._item_index: dict[str, UiItem] = {}   # key -> UiItem (para export y detalle)
+
         super().__init__(parent)
 
         ttk.Label(self, text="Resultados", style="Title.TLabel").pack(anchor="w", pady=(0, 8))
@@ -36,7 +38,7 @@ class ResultadosView(ttk.Frame):
         self.status.pack(anchor="w", pady=(0, 10))
 
         actions = ttk.Frame(self)
-        actions.pack(fill="x", pady=(0,10))
+        actions.pack(fill="x", pady=(0, 10))
 
         btn_select_all = ttk.Button(
             actions,
@@ -52,12 +54,8 @@ class ResultadosView(ttk.Frame):
         )
         self.btn_export.pack(side="right")
 
-
         self.btn_clear = ttk.Button(actions, text="Limpiar selección", command=self._clear_selection)
         self.btn_clear.pack(side="right", padx=(0, 8))
-
-        # self.btn_export = ttk.Button(actions, text = "Exportar a Word", command = self._export_word)
-        # self.btn_export.pack(side = "right")
 
         self.nb_camaras = ttk.Notebook(self)
         self.nb_camaras.pack(fill="both", expand=True)
@@ -67,6 +65,13 @@ class ResultadosView(ttk.Frame):
 
     def set_status(self, text: str):
         self.status.configure(text=text)
+
+    def set_cliente(self, cliente: str | None):
+        """Guardar cliente para exportación a Word (token {{CLIENTE}})."""
+        self._cliente = (cliente or "").strip() or None
+        # refresca el status para incluir cliente si ya hay rango cargado
+        if self._date_from and self._date_to and self._vm is not None:
+            self._update_selected_status()
 
     def _export_word(self):
         if not self._vm:
@@ -92,36 +97,42 @@ class ResultadosView(ttk.Frame):
                 if kept:
                     filtered_vm[camara][apartado] = kept
 
-        # si por algún motivo el filtro quedó vacío:
         total_kept = sum(len(v) for cam in filtered_vm.values() for v in cam.values())
         if total_kept == 0:
             messagebox.showwarning("Sin elementos", "No quedó ningún item seleccionado para exportación.")
             return
 
-        # ... aquí ya haces asksaveasfilename y exportas usando filtered_vm ...
         default_name = f"Dossier_{self._date_from}_a_{self._date_to}.docx".replace("-", "")
         path = filedialog.asksaveasfilename(
             defaultextension=".docx",
             filetypes=[("Word Document", "*.docx")],
             initialfile=default_name,
             title="Guardar Dossier en Word",
-)
-
+        )
         if not path:
             return
 
-        export_selected_to_template(
-            vm=filtered_vm,
-            template_path=self.template_path,
-            output_path=path,
-            date_from=self._date_from,
-            date_to=self._date_to,
-            cliente=None,
-        )
+        try:
+            export_selected_to_template(
+                vm=filtered_vm,
+                template_path=self.template_path,
+                output_path=path,
+                date_from=self._date_from,
+                date_to=self._date_to,
+                cliente=self._cliente,   # ✅ aquí va el cliente seleccionado
+            )
+        except PermissionError:
+            messagebox.showerror(
+                "Archivo en uso",
+                "No se pudo guardar el Word porque el archivo está abierto o OneDrive lo está bloqueando.\n\n"
+                "Cierra el documento en Word y vuelve a intentar, o guarda con otro nombre."
+            )
+            return
+        except Exception as ex:
+            messagebox.showerror("Error", f"No se pudo exportar el dossier:\n{ex}")
+            return
 
         messagebox.showinfo("Exportación exitosa", f"Dossier guardado en:\n{path}")
-
-
 
     def render(self, vm: DossierViewModel, date_from: str, date_to: str):
         self._date_from = date_from
@@ -129,7 +140,6 @@ class ResultadosView(ttk.Frame):
         self._vm = vm
         self._trees.clear()
         self._item_index.clear()
-
 
         # Limpia tabs
         for tab_id in self.nb_camaras.tabs():
@@ -140,7 +150,9 @@ class ResultadosView(ttk.Frame):
             for ap in vm[cam]:
                 total += len(vm[cam][ap])
 
-        self.set_status(f"Rango: {date_from} → {date_to} | Total items: {total}")
+        # status base + cliente
+        cliente_txt = f" | Cliente: {self._cliente}" if self._cliente else ""
+        self.set_status(f"Rango: {date_from} → {date_to} | Total items: {total}{cliente_txt}")
 
         for camara in ["SENADO", "DIPUTADOS"]:
             sections = vm.get(camara) or {}
@@ -152,7 +164,6 @@ class ResultadosView(ttk.Frame):
 
             self._trees[camara] = {}
 
-            # Orden de apartados
             keys = list(sections.keys())
             keys_sorted = [k for k in PREFERRED_SECTIONS if k in keys] + [k for k in keys if k not in PREFERRED_SECTIONS]
 
@@ -168,10 +179,10 @@ class ResultadosView(ttk.Frame):
                 nb_sections.add(tab, text=f"{apartado.title()} ({len(rows)})")
 
                 tree = ttk.Treeview(
-                tab,
-                columns=("sel", "fecha", "titulo", "promovente", "estatus"),
-                show="headings",
-                height=18,
+                    tab,
+                    columns=("sel", "fecha", "titulo", "promovente", "estatus"),
+                    show="headings",
+                    height=18,
                 )
 
                 tree.heading("sel", text="Sel")
@@ -186,12 +197,11 @@ class ResultadosView(ttk.Frame):
                 tree.column("promovente", width=220, anchor="w")
                 tree.column("estatus", width=160, anchor="w")
 
-
                 tree.pack(fill="both", expand=True, padx=8, pady=8)
 
                 for r in rows:
                     rid = (r.id or f"{apartado}_{r.fecha}_{hash(r.titulo)}")[:200]
-                    key = f"{camara}|{apartado}|{rid}"   # key global único
+                    key = f"{camara}|{apartado}|{rid}"  # key global único
 
                     self._item_index[key] = r
 
@@ -199,26 +209,26 @@ class ResultadosView(ttk.Frame):
                     tree.insert(
                         "",
                         "end",
-                        iid=key,   # usamos key como iid del tree
+                        iid=key,
                         values=(checked, r.fecha, r.titulo, r.promovente, r.estatus),
                     )
-                
+
                 tree.bind("<Button-1>", lambda e, c=camara, a=apartado: self._on_tree_click(e, c, a), add="+")
                 tree.bind("<Double-1>", lambda e, c=camara, a=apartado: self._open_selected(c, a))
 
                 self._trees[camara][apartado] = tree
 
-            # Selecciona primera sección con data
             for i, ap in enumerate(keys_sorted):
                 if sections.get(ap):
                     nb_sections.select(i)
                     break
 
-        # Selecciona Senado si tiene algo, si no Diputados
         if sum(len(v) for v in (vm.get("SENADO") or {}).values()) > 0:
             self.nb_camaras.select(0)
         else:
             self.nb_camaras.select(1)
+
+        self._update_selected_status()
 
     def _open_selected(self, camara: str, apartado: str):
         if not self._vm:
@@ -232,7 +242,7 @@ class ResultadosView(ttk.Frame):
         iid = sel[0]  # iid == key completo
         row = self._item_index.get(iid)
         if not row:
-            return  
+            return
 
         top = self.winfo_toplevel()
         dialog = tk.Toplevel(top)
@@ -262,17 +272,15 @@ class ResultadosView(ttk.Frame):
         if not tree:
             return
 
-        # ¿qué columna se clickeó?
         col = tree.identify_column(event.x)  # '#1' = primera columna
         row_id = tree.identify_row(event.y)
         if not row_id:
             return
 
-        # Solo toggle si fue en la columna "sel" (primera)
         if col != "#1":
             return
 
-        key = row_id  # porque iid = key
+        key = row_id
         if key in self._selected:
             self._selected.remove(key)
             new_val = "☐"
@@ -280,47 +288,44 @@ class ResultadosView(ttk.Frame):
             self._selected.add(key)
             new_val = "☑"
 
-        # actualiza solo la columna sel del row
         current = list(tree.item(key, "values"))
         current[0] = new_val
         tree.item(key, values=tuple(current))
 
-        # Actualiza status con conteo seleccionados
         self._update_selected_status()
 
     def _update_selected_status(self):
         sel = len(self._selected)
-        # conserva el status principal y agrega seleccionados
+
         base = self.status.cget("text") or ""
-        # evita duplicar
         if "| Seleccionados:" in base:
             base = base.split("| Seleccionados:")[0].strip()
-        self.set_status(f"{base} | Seleccionados: {sel}")
+
+        # asegura que cliente se vea
+        cliente_txt = f" | Cliente: {self._cliente}" if self._cliente else ""
+        if " | Cliente:" in base:
+            base = base.split(" | Cliente:")[0].strip()
+
+        self.set_status(f"{base}{cliente_txt} | Seleccionados: {sel}")
 
     def _clear_selection(self):
         self._selected.clear()
         self._update_selected_status()
-        # refresca el render para que vuelva a mostrar ☐
         if self._vm:
             self.render(self._vm, self._date_from, self._date_to)
 
     def _select_all(self):
-        """
-        Marca todos los items visibles en todas las tablas.
-        """
         if not self._vm:
             return
 
         self._selected.clear()
 
         for camara, apartados in self._trees.items():
-            for apartado, tree in apartados.items():
+            for _, tree in apartados.items():
                 for iid in tree.get_children():
-                    # iid ya es la key global
                     self._selected.add(iid)
-
                     values = list(tree.item(iid, "values"))
-                    values[0] = "☑"   # columna sel
+                    values[0] = "☑"
                     tree.item(iid, values=tuple(values))
 
         self._update_selected_status()

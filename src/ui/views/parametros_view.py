@@ -14,7 +14,7 @@ def _validate_date(s: str) -> bool:
 
 
 class ParametrosView(ttk.Frame):
-    def __init__(self, parent, on_review):
+    def __init__(self, parent, on_review, clientes: list[str] | None = None):
         super().__init__(parent)
         self.on_review = on_review
 
@@ -23,9 +23,8 @@ class ParametrosView(ttk.Frame):
         info = ttk.Label(
             self,
             text=(
-                "Selecciona un rango de fechas para consultar la información legislativa.\n"
-                "Se incluirán todos los registros cuya fecha se encuentre dentro del "
-                "intervalo seleccionado."
+                "Selecciona un cliente y un rango de fechas para consultar la información legislativa.\n"
+                "Se incluirán todos los registros cuya fecha se encuentre dentro del intervalo seleccionado."
             ),
             wraplength=900,
             justify="left",
@@ -36,27 +35,29 @@ class ParametrosView(ttk.Frame):
         form = ttk.Frame(self)
         form.pack(anchor="w")
 
-        # =========================
-        # ✅ Cliente (nuevo)
-        # =========================
-        self.clientes = ["Abbott", "Aeroméxico", "Comex", "Mercado Libre"]
-        self.cliente_var = tk.StringVar(value=self.clientes[0])
-
+        # -------------------------
+        # Cliente (Combo)
+        # -------------------------
         ttk.Label(form, text="Cliente").grid(row=0, column=0, sticky="w", padx=(0, 10), pady=6)
-        self.cmb_cliente = ttk.Combobox(
+
+        self.cliente_var = tk.StringVar(value="")
+        values = clientes or ["Abbott", "Aeroméxico", "Comex", "Mercado Libre"]
+
+        self.cb_cliente = ttk.Combobox(
             form,
             textvariable=self.cliente_var,
-            values=self.clientes,
+            values=values,
             state="readonly",
-            width=28
-            # ✅ sin style="White.TCombobox"
+            width=28,
+            style="White.TCombobox",   # tu estilo blanco
         )
+        self.cb_cliente.grid(row=0, column=1, sticky="w", pady=6)
+        if values:
+            self.cb_cliente.current(0)
 
-        self.cmb_cliente.grid(row=0, column=1, sticky="w", pady=6)
-
-        # =========================
+        # -------------------------
         # Fechas
-        # =========================
+        # -------------------------
         ttk.Label(form, text="Desde").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=6)
         self.date_from_var = tk.StringVar(value="")
         self.dp_from = DatePicker(form, textvariable=self.date_from_var, width=28)
@@ -96,5 +97,5 @@ class ParametrosView(ttk.Frame):
             messagebox.showerror("Formato inválido", "Las fechas deben tener formato YYYY-MM-DD.")
             return
 
-        # ✅ callback ahora manda (cliente, desde, hasta)
+        # ✅ ahora mandamos también cliente
         self.on_review(cliente, date_from, date_to)
