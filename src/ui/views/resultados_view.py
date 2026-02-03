@@ -36,13 +36,28 @@ class ResultadosView(ttk.Frame):
         self.status.pack(anchor="w", pady=(0, 10))
 
         actions = ttk.Frame(self)
-        actions.pack(fill = "x", pady = (0,10))
+        actions.pack(fill="x", pady=(0,10))
+
+        btn_select_all = ttk.Button(
+            actions,
+            text="Seleccionar todo",
+            command=self._select_all
+        )
+        btn_select_all.pack(side="left")
+
+        self.btn_export = ttk.Button(
+            actions,
+            text="Exportar a Word",
+            command=self._export_word
+        )
+        self.btn_export.pack(side="right")
+
 
         self.btn_clear = ttk.Button(actions, text="Limpiar selección", command=self._clear_selection)
         self.btn_clear.pack(side="right", padx=(0, 8))
 
-        self.btn_export = ttk.Button(actions, text = "Exportar a Word", command = self._export_word)
-        self.btn_export.pack(side = "right")
+        # self.btn_export = ttk.Button(actions, text = "Exportar a Word", command = self._export_word)
+        # self.btn_export.pack(side = "right")
 
         self.nb_camaras = ttk.Notebook(self)
         self.nb_camaras.pack(fill="both", expand=True)
@@ -289,3 +304,23 @@ class ResultadosView(ttk.Frame):
         if self._vm:
             self.render(self._vm, self._date_from, self._date_to)
 
+    def _select_all(self):
+        """
+        Marca todos los items visibles en todas las tablas.
+        """
+        if not self._vm:
+            return
+
+        self._selected.clear()
+
+        for camara, apartados in self._trees.items():
+            for apartado, tree in apartados.items():
+                for iid in tree.get_children():
+                    # iid ya es la key global
+                    self._selected.add(iid)
+
+                    values = list(tree.item(iid, "values"))
+                    values[0] = "☑"   # columna sel
+                    tree.item(iid, values=tuple(values))
+
+        self._update_selected_status()
