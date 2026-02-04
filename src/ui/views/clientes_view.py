@@ -2,16 +2,40 @@ from __future__ import annotations
 
 import tkinter as tk
 from tkinter import ttk, messagebox
-from typing import List, Dict
+from typing import List, Dict, Callable, Optional
 
 from src.services.clientes_repository import ClienteTemas
 
 
 class ClientesView(ttk.Frame):
-    def __init__(self, parent, clientes: List[ClienteTemas]):
+    def __init__(
+        self,
+        parent,
+        clientes: List[ClienteTemas],
+        can_edit: bool = False,
+        on_save: Optional[Callable[[List[ClienteTemas]], None]] = None,
+    ):
         super().__init__(parent)
 
+        self.can_edit = can_edit
+        self.on_save = on_save
+
         ttk.Label(self, text="Clientes y temas de interés", style="Title.TLabel").pack(anchor="w", pady=(0, 8))
+
+        # Aviso de modo
+        mode_txt = "Modo administrador: edición habilitada." if self.can_edit else "Modo usuario: solo lectura."
+        ttk.Label(self, text=mode_txt, style="Subtitle.TLabel").pack(anchor="w", pady=(0, 10))
+
+        # Botón Guardar (solo admin)
+        top_actions = ttk.Frame(self)
+        top_actions.pack(fill="x", pady=(0, 8))
+
+        self.btn_save = ttk.Button(top_actions, text="Guardar cambios", command=self._save_changes)
+        if self.can_edit:
+            self.btn_save.pack(side="right")
+        else:
+            # lo ocultamos en modo user
+            pass
 
         self.nb = ttk.Notebook(self)
         self.nb.pack(fill="both", expand=True)
@@ -39,10 +63,14 @@ class ClientesView(ttk.Frame):
         actions.pack(side="right")
 
         btn_add = ttk.Button(actions, text="Agregar", command=lambda: self._add_tema(cliente))
-        btn_add.pack(side="left", padx=(0, 6))
-
         btn_del = ttk.Button(actions, text="Eliminar", command=lambda: self._remove_selected(cliente))
-        btn_del.pack(side="left")
+
+        if self.can_edit:
+            btn_add.pack(side="left", padx=(0, 6))
+            btn_del.pack(side="left")
+        else:
+            # modo user: ocultamos los botones
+            pass
 
         # Lista
         body = ttk.Frame(tab)
@@ -68,6 +96,9 @@ class ClientesView(ttk.Frame):
             lb.insert(tk.END, t)
 
     def _add_tema(self, cliente: str):
+        if not self.can_edit:
+            return
+
         # mini-dialog
         dialog = tk.Toplevel(self.winfo_toplevel())
         dialog.title(f"Agregar tema - {cliente}")
@@ -86,12 +117,20 @@ class ClientesView(ttk.Frame):
             if not tema:
                 messagebox.showwarning("Dato requerido", "Escribe un tema.")
                 return
-            self._clientes.setdefault(cliente, []).append(tema)
-            # refrescar listbox del tab actual
+
+            temas = self._clientes.setdefault(cliente, [])
+            # evitar duplicados case-insensitive
+            if tema.lower() in {t.lower() for t in temas}:
+                messagebox.showinfo("Duplicado", "Ese tema ya existe para este cliente.")
+                return
+
+            temas.append(tema)
+
             tab = self.nb.nametowidget(self.nb.select())
             lb = getattr(tab, "_lb", None)
             if lb:
                 self._refresh_listbox(cliente, lb)
+
             dialog.destroy()
 
         btns = ttk.Frame(dialog)
@@ -102,15 +141,41 @@ class ClientesView(ttk.Frame):
         entry.bind("<Return>", lambda e: ok())
 
     def _remove_selected(self, cliente: str):
+        if not self.can_edit:
+            return
+
         tab = self.nb.nametowidget(self.nb.select())
         lb: tk.Listbox | None = getattr(tab, "_lb", None)
         if not lb:
             return
+
         sel = lb.curselection()
         if not sel:
             messagebox.showinfo("Selecciona un tema", "Selecciona un tema para eliminar.")
             return
+
         tema = lb.get(sel[0])
+        if not messagebox.askyesno("Confirmar", f"¿Eliminar '{tema}' de {cliente}?"):
+            return
+
         temas = self._clientes.get(cliente, [])
         self._clientes[cliente] = [t for t in temas if t != tema]
         self._refresh_listbox(cliente, lb)
+
+    def _save_changes(self):
+        if not self.can_edit:
+            return
+        if not self.on_save:
+            messagebox.showwarning("Sin guardado", "No hay función configurada para guardar cambios.")
+            return
+
+        try:
+            clientes_out: List[ClienteTemas] = []
+            for nombre, temas in self._clientes.items():
+                clean = [t.strip() for t in temas if (t or "").strip()]
+                clientes_out.append(ClienteTemas(nombre=nombre.strip(), temas_interes=clean))
+
+            self.on_save(clientes_out)
+            messagebox.showinfo("Guardado", "Cambios guardados correctamente.")
+        except Exception as ex:
+            messagebox.showerror("Error", f"No se pudo guardar:\n{ex}")

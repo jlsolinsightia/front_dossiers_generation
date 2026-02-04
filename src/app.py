@@ -14,7 +14,7 @@ from src.ui.views.resultados_view import ResultadosView
 from src.services.auth_service import build_auth_service, AuthResult
 from src.ui.views.login_view import LoginView
 
-from src.services.clientes_repository import ClientesRepositoryFile
+from src.services.clientes_repository import ClientesRepositoryFile, ClienteTemas
 from src.ui.views.clientes_view import ClientesView
 
 
@@ -31,6 +31,9 @@ def run_app():
     # Servicios
     repo = build_repository(settings)
     auth = build_auth_service(settings)
+
+    # Repo de clientes (una sola instancia)
+    clientes_repo = ClientesRepositoryFile(settings.CLIENTES_TEMAS_PATH)
 
     container = ttk.Frame(root)
     container.pack(fill="both", expand=True)
@@ -50,42 +53,33 @@ def run_app():
         if frame is not None:
             frame.destroy()
 
-    def load_clientes_for_ui() -> tuple[list[dict], list[str]]:
+    def load_clientes_for_ui() -> tuple[list[ClienteTemas], list[str]]:
         """
-        Devuelve:
-          - clientes: estructura completa (para ClientesView)
-          - clientes_names: lista de nombres para combobox
+        Tu repo devuelve List[ClienteTemas].
+        Regresamos:
+          - clientes_data: List[ClienteTemas] para ClientesView
+          - nombres: List[str] para combobox de ParametrosView
         """
-        repo_clientes = ClientesRepositoryFile(settings.CLIENTES_TEMAS_PATH)
         try:
-            clientes = repo_clientes.load() or []
+            clientes_data = clientes_repo.load() or []
         except Exception as ex:
             print("No se pudieron cargar clientes:", ex)
-            clientes = []
+            clientes_data = []
 
-        # Intenta extraer nombres de manera flexible
-        nombres: list[str] = []
-        for c in clientes:
-            if isinstance(c, dict):
-                name = (c.get("cliente") or c.get("nombre") or c.get("name") or "").strip()
-                if name:
-                    nombres.append(name)
-            elif isinstance(c, str):
-                nombres.append(c)
+        nombres = [c.nombre for c in clientes_data if (c.nombre or "").strip()]
 
-        # fallback por si viene vacío
         if not nombres:
             nombres = ["Abbott", "Aeroméxico", "Comex", "Mercado Libre"]
 
-        # quitar duplicados preservando orden
+        # quitar duplicados conservando orden
         seen = set()
-        uniq = []
+        uniq: list[str] = []
         for n in nombres:
             if n not in seen:
                 uniq.append(n)
                 seen.add(n)
 
-        return clientes, uniq
+        return clientes_data, uniq
 
     def show_login():
         nonlocal login_view, main_frame, session_user, session_role
@@ -124,6 +118,10 @@ def run_app():
         main_frame = ttk.Frame(container)
         main_frame.pack(fill="both", expand=True)
 
+        # role normalized
+        role = (session_role or "").strip().lower()
+        is_admin = role == "admin"
+
         # Header con usuario + logout
         header = ttk.Frame(main_frame)
         header.pack(fill="x", padx=10, pady=(10, 0))
@@ -147,12 +145,22 @@ def run_app():
         tab_param = ttk.Frame(nb)
         tab_res = ttk.Frame(nb)
 
+        # Orden de tabs: Clientes / Parámetros / Resultados
         nb.add(tab_clientes, text="Clientes")
         nb.add(tab_param, text="Parámetros")
         nb.add(tab_res, text="Resultados")
 
-        # --- Clientes tab
-        clientes_view = ClientesView(tab_clientes, clientes=clientes_data)
+        # ✅ Si NO es admin, deshabilita la pestaña Clientes
+        if not is_admin:
+            nb.tab(tab_clientes, state="disabled")
+
+        # --- Clientes tab (editable solo si admin)
+        clientes_view = ClientesView(
+            tab_clientes,
+            clientes=clientes_data,         # List[ClienteTemas]
+            can_edit=is_admin,
+            on_save=(lambda updated: clientes_repo.save(updated)) if is_admin else None,
+        )
         clientes_view.pack(fill="both", expand=True, padx=10, pady=10)
 
         # --- Resultados tab
@@ -166,23 +174,10 @@ def run_app():
             def work():
                 q = DossierQuery(cliente=cliente, camara="ALL", desde=date_from, hasta=date_to)
                 payload = repo.get_dossier(q)
-
-                # Debug opcional
-                print("ROOT KEYS:", list(payload.keys()))
-                data = payload.get("data")
-                print("HAS data?:", isinstance(data, dict))
-                if isinstance(data, dict):
-                    print("DATA KEYS:", list(data.keys()))
-                    for k, v in data.items():
-                        if isinstance(v, dict):
-                            total = sum(len(x) for x in v.values() if isinstance(x, list))
-                            print(f"  {k}: sections={len(v)} total_items={total}")
-
                 vm = normalize_for_ui_both_chambers(payload, date_from, date_to)
                 return vm
 
             def ok(vm):
-                # ✅ importante para el token {{CLIENTE}}
                 resultados_view.set_cliente(cliente)
                 resultados_view.render(vm, date_from=date_from, date_to=date_to)
                 nb.select(tab_res)
@@ -202,7 +197,7 @@ def run_app():
 
             threading.Thread(target=runner, daemon=True).start()
 
-        # --- Parámetros tab (pasamos lista de clientes al combo)
+        # --- Parámetros tab (pasamos lista de clientes)
         parametros_view = ParametrosView(tab_param, on_review=on_review, clientes=clientes_combo)
         parametros_view.pack(fill="both", expand=True, padx=10, pady=10)
 
